@@ -24,19 +24,21 @@ func solveNQueens(n int) [][]string {
 				return false
 			}
 		}
-		// 斜着
-		// 右上
+
+		// 左上对角线检查
 		for i, j := r-1, c-1; i >= 0 && j >= 0; i, j = i-1, j-1 {
 			if chessboard[i][j] == 'Q' {
 				return false
 			}
 		}
-		// 左下
+		// 右上对角线检查
 		for i, j := r-1, c+1; i >= 0 && j <= n-1; i, j = i-1, j+1 {
 			if chessboard[i][j] == 'Q' {
 				return false
 			}
 		}
+		//为何不检查左下和右下对角线
+		//因为下方的行还未放置皇后，所以无需检查左下和右下方向。
 
 		return true
 	}
